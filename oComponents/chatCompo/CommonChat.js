@@ -18,11 +18,20 @@ const {getNameById, sendReport}=require('./helper/chat')
 
 
 export default function CommonChat(props) {
-  // console.log(props.role)
+  console.log(props)
 
-const token=useRef(props.token);
-  const [userId,setUserId]=useState(props.userId.current)
-  const [role,setRole]=useState(props.role.current)
+  // const[token,setToken]=useState(props.token.current);
+  // const[userId,setUserId]=useState(props.props.userId.current)
+  // const [role,setRole]=useState(props.props.role.current)
+  // const [section,setSection]=useState(props.section.current)
+  const token=useRef(props.token.current);
+  const userId=useRef(props.userId.current)
+  const role=useRef(props.role.current)
+  const section=useRef(props.section.current)
+
+// const token1=useRef(props.token.current);
+  // const [userId1,setUserId]=useState(props.userId.current)
+  // const [role1,setRole]=useState(props.role.current)
  const [name,setName]=useState('')
  const[msg,setMsg]=useState("");
  const  [msgList,setMsgList]=useState([]);
@@ -37,7 +46,6 @@ const token=useRef(props.token);
 
 
   useEffect(()=>{
-
     socket.on('recieve-msg',(data)=>{
       // console.log(data);
       setMsgList([...msgList,data])
@@ -82,7 +90,7 @@ const token=useRef(props.token);
   }
 
   const goback=()=>{
-      Actions.loadnames({token,userId,role})
+    Actions.home({token,userId,role,section})
   }
   const displayReportSend=()=>{
     setReport(1);

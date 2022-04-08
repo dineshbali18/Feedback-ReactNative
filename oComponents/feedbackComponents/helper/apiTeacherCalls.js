@@ -1,7 +1,7 @@
 import { API,API2,API4 } from "../../../backend";
 
 export const getTeachers = (section) => {
-  // console.log(section)
+  console.log(section)
   return fetch(`https://teacherb.herokuapp.com/api/section/teachers/section/${section}`,
   { method: "GET" })
     .then(response => {
@@ -10,6 +10,16 @@ export const getTeachers = (section) => {
     })
     .catch(err => console.log(err));
 };
+
+export const getRemainingSubjects=(userId)=>{
+  return fetch(`https://userda.herokuapp.com/api/section/user/remaining/${userId}`,
+  { method: "GET" }
+    .then(response => {
+        console.log(response);
+      return response.json();
+    })
+    .catch(err => console.log(err)))
+}
 
 
 export const Submit_Rating=(rate,id)=>{

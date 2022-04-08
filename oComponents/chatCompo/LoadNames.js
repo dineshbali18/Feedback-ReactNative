@@ -15,11 +15,13 @@ const {getRooms,getNameById}=require('./helper/chat')
 
 
 export default function LoadNames(props) {
-    // console.log(props.userId)
+    console.log(props)
     const [rooms,setRooms]=useState([])
     const token=useRef(props.token);
   const userId=useRef(props.userId)
   const role=useRef(props.role)
+  const section=useRef(props.section)
+
  const [name,setName]=useState('')
  const [load,setLoad]=useState(0);
 
@@ -33,20 +35,20 @@ export default function LoadNames(props) {
   getNameById(props.userId)
       .then(data=>{
         //   console.log(data)
-          setName(data.name);
+          setName(data);
         }
       )
     },[])
 
     const gotoChat=(r_name,r_title)=>{
-        Actions.commonchat({name,userId,r_name,r_title,role})
+        Actions.commonchat({name,userId,r_name,r_title,role,section,token})
     }
 
     return (
         <>
         <>
         <SafeAreaView>
-        <Button  title="  go Back" onPress={()=>{Actions.home({token,userId,role})}}/>
+        <Button  title="  go Back" onPress={()=>{Actions.home({token,userId,role,section});}}/>
             <Text style={tw`mt-2 font-bold ml-4`}>Hi,{name}</Text>
             {load==0?
             <View>

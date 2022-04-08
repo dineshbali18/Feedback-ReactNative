@@ -12,10 +12,10 @@ export const getRooms = () => {
 
 
 export const getNameById=(id)=>{
-   return fetch(`${API}/user/${id}/getname`, 
+   return fetch(`https://userda.herokuapp.com/api/user/get/name/${id}`, 
    { method: "GET" })
    .then(response => {
-       // console.log(response.json)
+       console.log(response)
      return response.json();
    })
    .catch(err => console.log(err));
@@ -23,7 +23,7 @@ export const getNameById=(id)=>{
 
 export const sendReport=report=>{
   // console.log(report);
-  return fetch(`https://bigbossotpcontes.herokuapp.com/api/create/report`,{
+  return fetch(``,{
    method:"POST",
    headers: {
     Accept: "application/json",

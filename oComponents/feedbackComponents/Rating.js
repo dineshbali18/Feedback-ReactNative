@@ -20,14 +20,16 @@ export default function Rating(props) {
   const[token,setToken]=useState(props.props.token.current);
   const[userId,setUserId]=useState(props.props.userId.current)
   const [role,setRole]=useState(props.props.role.current)
+  const [section,setSection]=useState(props.props.section.current)
 
 
   const goToCheckPercenta = () => {
     Actions.checkpercenta()
  }
 
-    const [votesleft,setVotesleft]=useState(0);
+    const remaining_s=useRef([]);
     const [BBMates,setBBMates]=useState([])
+    const RemUsingSet=useRef(new Set());
 
 
 
@@ -37,16 +39,26 @@ export default function Rating(props) {
 
     const loadAllContestants = async() => {
       //changes by section
-      //vvip
-        await getTeachers("B1").then(data => {
+        await getTeachers(section).then(data => {
             // console.log(data);
           if (data.error) {
             console.log(data.error);
           } else {
             // console.log(data.contestants1)
            setBBMates(data);
+           getRemainingSubjects(userId).then(data => {
+            // console.log(data);
+          if (data.error) {
+            console.log(data.error);
+          } else {
+            // console.log(data.contestants1)
+           remaining_s.current=data;
+           setRemUsingSet.current=new Set(remaining_s.current)
+          }
+        });;
           }
         });
+
       };
     
     // const castVote=(id)=>{
@@ -64,8 +76,10 @@ export default function Rating(props) {
     useEffect(()=>{
       const f1=async()=>{
         await loadAllContestants()
+        f2();
         // .then(loadVotes())
       }
+      
       f1();
     },[]);
 
@@ -82,9 +96,10 @@ export default function Rating(props) {
         <View>
         <Button  title="  go Back" onPress={()=>{Actions.pop()}}/>
         </View>
-        <View><Text style={{fontWeight:"bold",marginLeft:50,fontSize:20}}>Feedback</Text></View>
-        <ScrollView>
+        <View><Text style={{fontWeight:"bold",marginLeft:50,fontSize:30}}>Feedback</Text></View>
+        <ScrollView style={{height:'70%'}}>
         <View>
+          {/* {console.log(RemUsingSet)} */}
           {BBMates.map((teacher,index)=>{
             return (
               <>
@@ -105,7 +120,7 @@ export default function Rating(props) {
               <View style={{marginTop:25,maxWidth:250}}>
               <Text style={{fontWeight:'bold'}}>Name:</Text><Text>{teacher.t_name}</Text>
               <Text style={{fontWeight:'bold'}}>Subject:</Text><Text>{teacher.subject}</Text>
-              <TouchableOpacity onPress={()=>{Actions.feedback(teacher)}}><Text style={{fontWeight:'bold',backgroundColor:'indigo',color:'white',borderRadius:10,paddingLeft:20,marginLeft:50}}>Feedback</Text></TouchableOpacity>
+              <TouchableOpacity onPress={()=>{Actions.feedback(teacher)}}><Text style={{fontWeight:'bold',backgroundColor:'indigo',color:'white',borderRadius:10,paddingLeft:20,paddingRight:20,marginLeft:50}}>Feedback</Text></TouchableOpacity>
               </View>
               </View>
               </>
@@ -114,7 +129,9 @@ export default function Rating(props) {
         }
         </View>
         </ScrollView>
-        <Button color="#ff5c5c"  title="Chat" onPress={()=>{Actions.loadnames({token,userId,role})}}/>
+        <View style={{marginTop:20}}>
+        <Button color="#ff5c5c"  title="Chat" onPress={()=>{Actions.loadnames({token,userId,role,section})}}/>
+        </View>
         </SafeAreaView>
         </>
     )

@@ -36,7 +36,7 @@ export default function App() {
           <Scene key = "rating" component = {Rating} title = "Initial"  hideNavBar={true} />
           <Scene key = "feedback" component = {Feedback} title = "Initial"  hideNavBar={true} />
           <Scene key = "select" component = {select} title = "Initial" hideNavBar={true} />
-          <Scene key = "select" component = {FeedbackStudents} title = "Initial"  hideNavBar={true} />
+          <Scene key = "feedbackstudents" component = {FeedbackStudents} title = "Initial"  hideNavBar={true} />
 
 
           
@@ -46,7 +46,7 @@ export default function App() {
           <Scene key = "admin" component = {Admin} title = "Admin Page" />
           <Scene key = "signup" component = {SignUp} title = "SIGN UP" />
           <Scene key = "signin" component = {SignIn} title = "SIGN IN" />
-          <Scene key = "home" component = {Home}  title = "Home" />
+          <Scene key = "home" component = {Home}  title = "Home" hideNavBar={true} />
           <Scene key = "votetelugu" component = {VoteTelugu} title = "Vote Telugu" />
           <Scene key="checkpercenta" component={CheckPercenta} title="Check Percentage"  />
        </Scene>

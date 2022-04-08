@@ -15,11 +15,12 @@ import Rating from './feedbackComponents/Rating';
 
 export default function Home(props) {
 
-  console.log(props.state);
-  const [name,setName]=useState(props.name.current)
+  console.log(props);
+  // const [name,setName]=useState(props.name.current)
   const[token,setToken]=useState(props.token.current);
   const[userId,setUserId]=useState(props.userId.current)
   const [role,setRole]=useState(props.role.current)
+  const [section,setSection]=useState(props.section.current)
 
 
   return (

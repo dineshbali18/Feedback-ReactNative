@@ -14,7 +14,8 @@ export default function SignIn(props) {
     const [load,setLoad]=useState(0)
     const userId=useRef(0)
     const role=useRef(0)
-    const section=useRef("")
+    const section=useRef('')
+    const nameOfUser=useRef('')
     // const [token,setToken]=useState('');
     const token = useRef('')
     const [user,setUser]=useState({
@@ -63,6 +64,7 @@ export default function SignIn(props) {
         else{
             // setToken(data.token);
             console.log(data);
+            nameOfUser.current=data.user.name
             userId.current=data.user._id;
             token.current=data.token;
             role.current=data.user.role;
@@ -76,7 +78,7 @@ export default function SignIn(props) {
             error:"",
             success:true})
             
-            Actions.home({token,userId,role});
+            Actions.home({token,userId,role,nameOfUser,section});
             // setHomePage(1);
         }
     

@@ -75,7 +75,7 @@ export default function select(props) {
               <View style={{marginTop:25,maxWidth:250}}>
               <Text style={{fontWeight:'bold'}}>Rating:</Text><Text>{teacher.rating}</Text>
               <Text style={{fontWeight:'bold'}}>Subject:</Text><Text>{teacher.subject}</Text>
-              <TouchableOpacity onPress={()=>{Actions.feedback(teacher)}}><Text style={{fontWeight:'bold',backgroundColor:'indigo',color:'white',borderRadius:10,paddingLeft:20,marginLeft:0,marginTop:4,paddingRight:10}}>check Feedback</Text></TouchableOpacity>
+              <TouchableOpacity onPress={()=>{Actions.feedbackstudents(teacher.feedbackFromStudents)}}><Text style={{fontWeight:'bold',backgroundColor:'indigo',color:'white',borderRadius:10,paddingLeft:20,marginLeft:0,marginTop:4,paddingRight:10}}>check Feedback</Text></TouchableOpacity>
               </View>
               </View>
               </>
