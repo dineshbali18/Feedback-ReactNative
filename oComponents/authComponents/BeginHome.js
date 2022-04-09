@@ -15,7 +15,7 @@ export default function VoteTelugu(props) {
           {/* <ImageBackground 
         style={{resizeMode: 'cover',width: '100%', height: '90%',zIndex:100}}
         source={{uri:"https://i.imgur.com/Rwk9FrE.png"}} /> */}
-        <Image source={{uri:'https://i.imgur.com/Rwk9FrE.png'}} style={{resizeMode: 'cover',width: '100%', height: '89.25%',zIndex:100}}/>
+        <Image source={require('../../images/logo.jpeg')} style={{resizeMode: 'cover',width: '100%', height: '89.25%',zIndex:100}}/>
             <Button title="SignUp" onPress={()=>{Actions.signup()}}/>
             <Button title="SignIn" onPress={()=>{Actions.signin()}}/>
             </View>

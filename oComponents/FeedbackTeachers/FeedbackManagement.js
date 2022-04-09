@@ -12,37 +12,12 @@ import {fetchFeedback} from './helper/apicalls'
 
 export default function FeedbackManagement(props) {
     // console.log("/////////////////////////////")
-    // console.log(props);
+    console.log(props);
     // const[token,setToken]=useState(props.token.current);
     // const[userId,setUserId]=useState(props.userId.current)
     // const [role,setRole]=useState(props.role.current)
 
-  const [secData,setSecData]=useState([]);
-
-
-  const setSectionData=()=>{
-      fetchFeedback().then(data => {
-        // console.log(data);
-      if (data.error) {
-        console.log(data.error);
-      } else {
-       setSecData(data.messageFromManagement);
-      }
-    });
-  };
-
-
-  
-  useEffect(()=>{
-    const f1=async()=>{
-      await setSectionData()
-      // .then(loadVotes())
-    }
-    f1();
-  },[]);
-
-  
-  
+  const [secData,setSecData]=useState();
   
     return (
       <>

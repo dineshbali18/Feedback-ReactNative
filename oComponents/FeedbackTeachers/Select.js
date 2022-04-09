@@ -11,6 +11,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { getFeedbackData} from './helper/apicalls'
 
 export default function select(props) {
+  // console.log("00000000000000000000000000000000000000000000000000")
+  // console.log(props.props.nameOfUser)
+  // console.log("00000000000000000000000000000000000000000000000000")
+
+  // const namee=useRef(props.props.nameOfUser.current)
     
     const[token,setToken]=useState(props.props.token.current);
     const[userId,setUserId]=useState(props.props.userId.current)
@@ -47,14 +52,15 @@ export default function select(props) {
       <>
       <SafeAreaView>
       <View style={{margin:20}}>
-      <Text style={{fontWeight:"bold"}}>Hello (name)</Text>
+      <Text style={{fontWeight:"bold"}}>Hello,</Text>
       </View>
-      <ScrollView style={{height:'70%'}}>
+      <ScrollView style={{height:'85%'}}>
         <View>
           {secData.map((teacher,index)=>{
             return (
               <>
-              <View style={{display:'flex',flexDirection:'row',borderStyle:'dotted',borderRadius:0.1,borderColor:'black'}}>
+              <View>
+              <View key={index} style={{display:'flex',flexDirection:'row',borderStyle:'dotted',borderRadius:0.1,borderColor:'black'}}>
                 <View>
               <Text
               style = {{
@@ -73,9 +79,10 @@ export default function select(props) {
               }}>{teacher.section}</Text>
               </View>
               <View style={{marginTop:25,maxWidth:250}}>
-              <Text style={{fontWeight:'bold'}}>Rating:</Text><Text>{teacher.rating}</Text>
+              <Text style={{fontWeight:'bold'}}>Rating:</Text><Text>{teacher.Rating}</Text>
               <Text style={{fontWeight:'bold'}}>Subject:</Text><Text>{teacher.subject}</Text>
-              <TouchableOpacity onPress={()=>{Actions.feedbackstudents(teacher.feedbackFromStudents)}}><Text style={{fontWeight:'bold',backgroundColor:'indigo',color:'white',borderRadius:10,paddingLeft:20,marginLeft:0,marginTop:4,paddingRight:10}}>check Feedback</Text></TouchableOpacity>
+              <TouchableOpacity onPress={()=>{Actions.feedbackstudents({feed:teacher.feedbackFromStudents})}}><Text style={{fontWeight:'bold',backgroundColor:'indigo',color:'white',borderRadius:10,paddingLeft:20,marginLeft:0,marginTop:4,paddingRight:10}}>check Feedback</Text></TouchableOpacity>
+              </View>
               </View>
               </View>
               </>
@@ -85,7 +92,7 @@ export default function select(props) {
         </View>
         </ScrollView>
         <View>
-        <TouchableOpacity onPress={()=>{Actions.feedback(teacher)}}><Text style={{fontWeight:'bold',backgroundColor:'indigo',color:'white',borderRadius:0,paddingLeft:20,marginLeft:0,marginTop:4,paddingRight:10}}>Management Feedback</Text></TouchableOpacity>
+        {/* <TouchableOpacity onPress={()=>{Actions.feedbackmanagement({feedManage:teacher.messageFromManagement})}}><Text style={{fontWeight:'bold',backgroundColor:'indigo',color:'white',borderRadius:0,paddingLeft:20,marginLeft:0,marginTop:4,paddingRight:10}}>Management Feedback</Text></TouchableOpacity> */}
         </View>
       </SafeAreaView>
       </>

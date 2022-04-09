@@ -12,38 +12,13 @@ import {fetchFeedback} from './helper/apicalls'
 
 export default function FeedbackStudents(props) {
     // console.log("/////////////////////////////")
-    // console.log(props);
+    // console.log(props.navigation.state.params.feed);
     // const[token,setToken]=useState(props.token.current);
     // const[userId,setUserId]=useState(props.userId.current)
     // const [role,setRole]=useState(props.role.current)
 
-  const [secData,setSecData]=useState([]);
+  const [secData,setSecData]=useState(props.navigation.state.params.feed);
 
-
-  const setSectionData=()=>{
-      fetchFeedback().then(data => {
-        console.log(data);
-      if (data.error) {
-        console.log(data.error);
-      } else {
-       setSecData(data);
-      }
-    });
-  };
-
-
-  
-  useEffect(()=>{
-    const f1=async()=>{
-      await setSectionData()
-      // .then(loadVotes())
-    }
-    f1();
-  },[]);
-
-  
-  
-  
     return (
       <>
       <SafeAreaView>

@@ -48,6 +48,7 @@ export default function LoadNames(props) {
         <>
         <>
         <SafeAreaView>
+            <View>
         <Button  title="  go Back" onPress={()=>{Actions.home({token,userId,role,section});}}/>
             <Text style={tw`mt-2 font-bold ml-4`}>Hi,{name}</Text>
             {load==0?
@@ -65,12 +66,14 @@ export default function LoadNames(props) {
                 )
             })}
             </ScrollView>
+            
             </View>:
         <>
         <View style={{backgroundColor:"snow",height:'100%' , width:'100%'}}>
       <Image source={require('../../images/Infinity.gif')} style={tw`h-12 w-12 mt-3 ml-40 mt-48 pl-1`}/>
       </View>
         </>}
+        </View>
         </SafeAreaView>
         </>
         </>

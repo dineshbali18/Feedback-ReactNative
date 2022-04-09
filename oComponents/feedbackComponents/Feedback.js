@@ -129,7 +129,7 @@ export default function Feedback(teacher) {
       {/* // */}
       </View>
 
-      <TouchableOpacity style={tw("h-10 w-32 rounded-full ml-48 border-indigo-600 bg-indigo-600 justify-center pl-10 flex-row mt-4 p-2")} onPress={()=>{submitRating(),submitFeedback(teacher._id),removeSubjectFromUser(teacher.subject)}}>
+      <TouchableOpacity style={tw("h-10 w-32 rounded-full ml-48 border-indigo-600 bg-indigo-600 justify-center pl-10 flex-row mt-4 p-2")} onPress={()=>{submitRating(),submitFeedback(teacher._id)}}>
           <Text style={tw("text-white font-bold")}>Submit</Text>
       </TouchableOpacity>
       </View>

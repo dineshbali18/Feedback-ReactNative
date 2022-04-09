@@ -20,6 +20,7 @@ import Rating from './oComponents/feedbackComponents/Rating'
 import Feedback from './oComponents/feedbackComponents/Feedback';
 import select from './oComponents/FeedbackTeachers/Select';
 import FeedbackStudents from './oComponents/FeedbackTeachers/FeedbackStudents';
+import FeedbackManagement from './oComponents/FeedbackTeachers/FeedbackManagement';
 
 
 export default function App() {
@@ -37,6 +38,8 @@ export default function App() {
           <Scene key = "feedback" component = {Feedback} title = "Initial"  hideNavBar={true} />
           <Scene key = "select" component = {select} title = "Initial" hideNavBar={true} />
           <Scene key = "feedbackstudents" component = {FeedbackStudents} title = "Initial"  hideNavBar={true} />
+          <Scene key = "feedbackmanagement" component = {FeedbackManagement} title = "Initial"  hideNavBar={true} />
+
 
 
           

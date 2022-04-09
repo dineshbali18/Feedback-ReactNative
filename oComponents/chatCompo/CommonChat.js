@@ -115,7 +115,8 @@ export default function CommonChat(props) {
             // console.log(payload)
             const {author,message}=payload;
               return(
-                <View key={index} style={tw`border-black border-2 border-yellow-600 mt-4 h-8 mx-4  flex-row`,{maxWidth:'80%'}}>
+                <View>
+                <View style={tw`border-black border-2 border-yellow-600 mt-4 h-8 mx-4  flex-row`,{maxWidth:'80%'}}>
                   <View style={tw`flex-row`}>
                   <Text  style={tw`text-base text-green-500 font-bold`}>{payload.author} </Text>
                   <Image  source={require('../../images/dots.png')} style={tw`h-5 w-5 mt-1.5 ml-1`}/>
@@ -129,6 +130,7 @@ export default function CommonChat(props) {
                   <Text style={tw`text-base font-bold`}>  {payload.message}</Text>
                   {/* <Button title='report'></Button> */}
                 <View/>
+                </View>
                 </View>
                 </View>
               )

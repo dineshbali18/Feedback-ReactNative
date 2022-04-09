@@ -120,11 +120,11 @@ export default function SignUp(props) {
 
   const [items,setItems]=useState([
     {label:'Teacher',value:'teacher'},
-    {label: 'B1', value: 'b1'},
-    {label: 'B2', value: 'b2'},
-    {label: 'B3', value: 'b3'},
-    {label: 'B4', value: 'b4'},
-    {label: 'B5', value: 'b5'},
+    {label: 'B1', value: 'B1'},
+    {label: 'B2', value: 'B2'},
+    {label: 'B3', value: 'B3'},
+    {label: 'B4', value: 'B4'},
+    {label: 'B5', value: 'B5'},
 ]);
 
     return (
